@@ -1,0 +1,1084 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Khmiri Beauté – Produits professionnels de beauté en Tunisie</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --rose:       #C4788A;
+    --rose-deep:  #A85C6E;
+    --rose-light: #F2D5DB;
+    --gold:       #C9A468;
+    --gold-light: #EDD9B2;
+    --ivory:      #FAF6F0;
+    --cream:      #F4EDE4;
+    --dark:       #1C1410;
+    --charcoal:   #3A2E2A;
+    --text:       #5A4A42;
+    --white:      #FFFFFF;
+    --shadow:     0 8px 40px rgba(196,120,138,.15);
+    --shadow-lg:  0 20px 60px rgba(196,120,138,.22);
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--ivory);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ─── SCROLLBAR ─── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--cream); }
+  ::-webkit-scrollbar-thumb { background: var(--rose); border-radius: 3px; }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 5vw;
+    height: 72px;
+    background: rgba(250,246,240,.92);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid rgba(196,120,138,.12);
+    transition: box-shadow .3s;
+  }
+  nav.scrolled { box-shadow: 0 4px 30px rgba(196,120,138,.13); }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.65rem; font-weight: 600; letter-spacing: .08em;
+    color: var(--rose-deep); text-decoration: none;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .nav-logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 2.2rem; list-style: none; }
+  .nav-links a {
+    font-size: .82rem; font-weight: 500; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--charcoal); text-decoration: none;
+    position: relative; padding-bottom: 3px;
+    transition: color .25s;
+  }
+  .nav-links a::after {
+    content:''; position: absolute; bottom: 0; left: 0;
+    width: 0; height: 1.5px; background: var(--rose);
+    transition: width .3s;
+  }
+  .nav-links a:hover { color: var(--rose); }
+  .nav-links a:hover::after { width: 100%; }
+  .nav-cta {
+    background: var(--rose); color: #fff !important;
+    padding: 8px 20px !important; border-radius: 40px;
+    transition: background .25s, transform .2s !important;
+  }
+  .nav-cta:hover { background: var(--rose-deep) !important; transform: translateY(-1px); }
+  .nav-cta::after { display: none !important; }
+  .hamburger {
+    display: none; flex-direction: column; gap: 5px;
+    cursor: pointer; padding: 8px; background: none; border: none;
+  }
+  .hamburger span { display: block; width: 24px; height: 2px; background: var(--charcoal); border-radius: 2px; transition: .3s; }
+  .mobile-menu {
+    display: none; position: fixed; top: 72px; left: 0; right: 0;
+    background: rgba(250,246,240,.97); backdrop-filter: blur(14px);
+    padding: 20px 5vw 30px; z-index: 999;
+    border-bottom: 1px solid var(--rose-light);
+    flex-direction: column; gap: 0;
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block; padding: 14px 0;
+    font-size: .9rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--charcoal); text-decoration: none;
+    border-bottom: 1px solid rgba(196,120,138,.1);
+    transition: color .2s;
+  }
+  .mobile-menu a:hover { color: var(--rose); }
+
+  /* ─── HERO ─── */
+  #accueil {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+    overflow: hidden;
+  }
+  .hero-content {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 80px 5vw 80px 8vw;
+    animation: fadeUp .9s ease both;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-size: .75rem; font-weight: 500; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 24px;
+  }
+  .hero-badge::before {
+    content: ''; display: block;
+    width: 32px; height: 1px; background: var(--gold);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(3rem, 5.5vw, 5.5rem);
+    font-weight: 300; line-height: 1.1;
+    color: var(--dark); margin-bottom: 12px;
+  }
+  .hero-title em { font-style: italic; color: var(--rose); }
+  .hero-subtitle {
+    font-size: 1rem; font-weight: 400; letter-spacing: .04em;
+    color: var(--rose); margin-bottom: 22px; text-transform: uppercase;
+    letter-spacing: .15em; font-size: .82rem;
+  }
+  .hero-desc {
+    font-size: 1rem; line-height: 1.75; color: var(--text);
+    max-width: 480px; margin-bottom: 40px;
+  }
+  .btn-group { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--rose); color: #fff;
+    padding: 14px 28px; border-radius: 50px;
+    font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .25s, transform .2s, box-shadow .2s;
+    box-shadow: 0 6px 20px rgba(196,120,138,.35);
+  }
+  .btn-primary:hover { background: var(--rose-deep); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(196,120,138,.4); }
+  .btn-wa {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: #25D366; color: #fff;
+    padding: 14px 28px; border-radius: 50px;
+    font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; border: none; cursor: pointer;
+    transition: background .25s, transform .2s, box-shadow .2s;
+    box-shadow: 0 6px 20px rgba(37,211,102,.3);
+  }
+  .btn-wa:hover { background: #1EBE57; transform: translateY(-2px); }
+  .btn-outline {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: transparent; color: var(--rose);
+    padding: 13px 26px; border-radius: 50px;
+    font-size: .85rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none; border: 1.5px solid var(--rose); cursor: pointer;
+    transition: all .25s;
+  }
+  .btn-outline:hover { background: var(--rose); color: #fff; transform: translateY(-2px); }
+  .hero-image {
+    position: relative; overflow: hidden;
+    background: linear-gradient(135deg, var(--cream) 0%, var(--rose-light) 100%);
+  }
+  .hero-image img {
+    width: 100%; height: 100%; object-fit: cover;
+    animation: scaleIn 1.2s ease both;
+  }
+  .hero-image-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(196,120,138,.18) 0%, rgba(201,164,104,.12) 100%);
+  }
+  .hero-floater {
+    position: absolute; bottom: 40px; left: -20px;
+    background: #fff; border-radius: 16px;
+    padding: 18px 24px; box-shadow: var(--shadow);
+    animation: float 4s ease-in-out infinite;
+  }
+  .hero-floater p { font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--text); margin-bottom: 4px; }
+  .hero-floater strong { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; color: var(--rose); }
+  .hero-stats {
+    position: absolute; top: 40px; right: -10px;
+    background: var(--rose); border-radius: 16px;
+    padding: 18px 24px; box-shadow: 0 8px 30px rgba(196,120,138,.4);
+    color: #fff; text-align: center;
+  }
+  .hero-stats strong { display: block; font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; }
+  .hero-stats span { font-size: .68rem; text-transform: uppercase; letter-spacing: .12em; opacity: .85; }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 5vw; }
+  .section-label {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-size: .72rem; font-weight: 600; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .section-label::before, .section-label::after {
+    content: ''; flex: 1; height: 1px; background: var(--gold); width: 24px;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 300; line-height: 1.2;
+    color: var(--dark); margin-bottom: 16px;
+  }
+  .section-title em { font-style: italic; color: var(--rose); }
+  .section-desc {
+    font-size: .98rem; line-height: 1.75; color: var(--text);
+    max-width: 580px; margin-bottom: 60px;
+  }
+  .text-center { text-align: center; }
+  .text-center .section-desc { margin-left: auto; margin-right: auto; }
+
+  /* ─── CATEGORIES TABS ─── */
+  .cat-tabs {
+    display: flex; gap: 10px; flex-wrap: wrap;
+    margin-bottom: 48px; justify-content: center;
+  }
+  .cat-tab {
+    padding: 9px 22px; border-radius: 40px;
+    font-size: .8rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    cursor: pointer; border: 1.5px solid var(--rose-light);
+    background: transparent; color: var(--text);
+    transition: all .25s;
+  }
+  .cat-tab.active, .cat-tab:hover {
+    background: var(--rose); color: #fff; border-color: var(--rose);
+    box-shadow: 0 4px 16px rgba(196,120,138,.3);
+  }
+
+  /* ─── PRODUCT GRID ─── */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 28px;
+  }
+  .product-card {
+    background: #fff; border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(196,120,138,.08);
+    transition: transform .3s, box-shadow .3s;
+    position: relative;
+  }
+  .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+  .product-card-img {
+    position: relative; height: 220px; overflow: hidden;
+    background: linear-gradient(135deg, var(--cream), var(--rose-light));
+  }
+  .product-card-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .5s;
+  }
+  .product-card:hover .product-card-img img { transform: scale(1.07); }
+  .product-badge {
+    position: absolute; top: 14px; left: 14px;
+    background: var(--gold); color: #fff;
+    font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    padding: 5px 12px; border-radius: 30px;
+  }
+  .product-card-body { padding: 22px; }
+  .product-cat {
+    font-size: .68rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--rose); margin-bottom: 6px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.25rem; font-weight: 600; color: var(--dark);
+    margin-bottom: 8px; line-height: 1.3;
+  }
+  .product-desc {
+    font-size: .83rem; line-height: 1.6; color: var(--text);
+    margin-bottom: 20px;
+  }
+  .product-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+  .btn-sm-wa {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: #25D366; color: #fff;
+    padding: 9px 16px; border-radius: 30px;
+    font-size: .74rem; font-weight: 500; letter-spacing: .06em;
+    text-decoration: none; transition: background .2s, transform .2s;
+    flex: 1; justify-content: center;
+  }
+  .btn-sm-wa:hover { background: #1EBE57; transform: translateY(-1px); }
+  .btn-sm-call {
+    display: inline-flex; align-items: center; gap: 6px;
+    background: transparent; color: var(--rose);
+    padding: 8px 16px; border-radius: 30px;
+    font-size: .74rem; font-weight: 500; letter-spacing: .06em;
+    text-decoration: none; border: 1.5px solid var(--rose);
+    transition: all .2s; justify-content: center;
+  }
+  .btn-sm-call:hover { background: var(--rose); color: #fff; }
+
+  /* ─── PRODUCTS BG ─── */
+  #produits { background: var(--white); }
+
+  /* ─── NOUVEAUTÉS ─── */
+  #nouveautes {
+    background: linear-gradient(160deg, var(--cream) 0%, var(--rose-light) 55%, var(--cream) 100%);
+    position: relative; overflow: hidden;
+  }
+  #nouveautes::before {
+    content: 'NEW'; position: absolute; right: -40px; top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14rem; font-weight: 300;
+    color: rgba(196,120,138,.06); pointer-events: none; white-space: nowrap;
+  }
+  .new-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+  .new-card {
+    background: #fff; border-radius: 20px; overflow: hidden;
+    box-shadow: 0 4px 24px rgba(196,120,138,.1);
+    transition: transform .3s, box-shadow .3s;
+    display: flex; flex-direction: column;
+  }
+  .new-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+  .new-card-img {
+    height: 200px; overflow: hidden;
+    background: linear-gradient(135deg, var(--rose-light), var(--cream));
+  }
+  .new-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s; }
+  .new-card:hover .new-card-img img { transform: scale(1.06); }
+  .new-card-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+  .new-tag {
+    display: inline-block; background: var(--rose-light); color: var(--rose-deep);
+    font-size: .65rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+    padding: 4px 12px; border-radius: 20px; margin-bottom: 10px;
+  }
+  .new-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; font-weight: 600; color: var(--dark); margin-bottom: 8px;
+  }
+  .new-desc { font-size: .82rem; line-height: 1.6; color: var(--text); margin-bottom: 18px; flex: 1; }
+
+  /* ─── SERVICES ─── */
+  #services { background: var(--dark); color: #fff; position: relative; overflow: hidden; }
+  #services::before {
+    content: ''; position: absolute; top: -200px; right: -200px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(196,120,138,.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #services .section-title { color: #fff; }
+  #services .section-label { color: var(--gold-light); }
+  #services .section-label::before, #services .section-label::after { background: var(--gold-light); }
+  #services .section-desc { color: rgba(255,255,255,.65); }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+  }
+  .service-card {
+    background: rgba(255,255,255,.04);
+    border: 1px solid rgba(196,120,138,.18);
+    border-radius: 20px; padding: 36px 30px;
+    transition: background .3s, transform .3s, border-color .3s;
+    position: relative; overflow: hidden;
+  }
+  .service-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--rose), var(--gold));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform .4s;
+  }
+  .service-card:hover { background: rgba(255,255,255,.07); transform: translateY(-4px); border-color: rgba(196,120,138,.35); }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-icon {
+    width: 52px; height: 52px; border-radius: 14px;
+    background: linear-gradient(135deg, var(--rose), var(--rose-deep));
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 22px; font-size: 1.4rem;
+  }
+  .service-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: #fff;
+    margin-bottom: 10px;
+  }
+  .service-desc { font-size: .85rem; line-height: 1.7; color: rgba(255,255,255,.55); }
+
+  /* ─── CONTACT ─── */
+  #contact {
+    background: var(--ivory);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 80px; padding: 100px 8vw;
+    align-items: center;
+  }
+  .contact-info { }
+  .contact-number {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 400; color: var(--dark);
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 8px;
+  }
+  .contact-number span { color: var(--rose); }
+  .contact-tagline { font-size: .9rem; color: var(--text); margin-bottom: 36px; line-height: 1.65; }
+  .contact-btns { display: flex; flex-direction: column; gap: 14px; max-width: 320px; }
+  .btn-contact-wa {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: #25D366; color: #fff;
+    padding: 16px 28px; border-radius: 50px;
+    font-size: .87rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background .2s, transform .2s, box-shadow .2s;
+    box-shadow: 0 6px 24px rgba(37,211,102,.3);
+  }
+  .btn-contact-wa:hover { background: #1EBE57; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(37,211,102,.35); }
+  .btn-contact-call {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    background: var(--rose); color: #fff;
+    padding: 16px 28px; border-radius: 50px;
+    font-size: .87rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
+    box-shadow: 0 6px 24px rgba(196,120,138,.3);
+  }
+  .btn-contact-call:hover { background: var(--rose-deep); transform: translateY(-2px); }
+  .social-links { display: flex; gap: 14px; margin-top: 28px; }
+  .social-link {
+    width: 44px; height: 44px; border-radius: 50%;
+    border: 1.5px solid var(--rose-light);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--rose); text-decoration: none; font-size: 1rem;
+    transition: all .25s;
+  }
+  .social-link:hover { background: var(--rose); color: #fff; border-color: var(--rose); transform: translateY(-2px); }
+  .contact-card {
+    background: #fff; border-radius: 28px;
+    padding: 48px 44px;
+    box-shadow: var(--shadow-lg);
+    position: relative; overflow: hidden;
+  }
+  .contact-card::before {
+    content: ''; position: absolute; bottom: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, var(--rose-light) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .contact-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.9rem; font-weight: 400; color: var(--dark);
+    margin-bottom: 8px;
+  }
+  .contact-card p { font-size: .88rem; color: var(--text); margin-bottom: 28px; line-height: 1.65; }
+  .contact-detail {
+    display: flex; align-items: center; gap: 14px;
+    padding: 16px 0; border-bottom: 1px solid var(--rose-light);
+  }
+  .contact-detail:last-of-type { border-bottom: none; }
+  .contact-detail-icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: var(--rose-light); display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; font-size: 1rem;
+  }
+  .contact-detail-text strong { display: block; font-size: .8rem; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--rose); margin-bottom: 2px; }
+  .contact-detail-text span { font-size: .9rem; color: var(--charcoal); }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--dark); color: rgba(255,255,255,.6);
+    padding: 60px 8vw 30px;
+  }
+  .footer-inner {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,.07);
+    margin-bottom: 30px;
+  }
+  .footer-brand { }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.8rem; font-weight: 600;
+    color: #fff; margin-bottom: 14px; display: block;
+  }
+  .footer-logo span { color: var(--gold); }
+  .footer-brand p { font-size: .85rem; line-height: 1.75; max-width: 300px; }
+  .footer-col h4 {
+    font-size: .75rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    color: rgba(255,255,255,.9); margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    font-size: .84rem; color: rgba(255,255,255,.5);
+    text-decoration: none; transition: color .2s;
+  }
+  .footer-col ul a:hover { color: var(--rose); }
+  .footer-bottom {
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: .78rem; flex-wrap: wrap; gap: 10px;
+  }
+  .footer-bottom a { color: var(--rose); text-decoration: none; }
+
+  /* ─── FLOATING WA BUTTON ─── */
+  .float-wa {
+    position: fixed; bottom: 28px; right: 28px; z-index: 900;
+    width: 58px; height: 58px; border-radius: 50%;
+    background: #25D366;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 6px 30px rgba(37,211,102,.5);
+    text-decoration: none; color: #fff; font-size: 1.6rem;
+    animation: pulse 2.5s ease-in-out infinite;
+    transition: transform .2s;
+  }
+  .float-wa:hover { transform: scale(1.1); animation: none; }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(32px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes scaleIn {
+    from { transform: scale(1.08); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%       { transform: translateY(-10px); }
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 6px 30px rgba(37,211,102,.5); }
+    50%       { box-shadow: 0 6px 50px rgba(37,211,102,.75); }
+  }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    #accueil { grid-template-columns: 1fr; min-height: auto; }
+    .hero-image { height: 55vw; min-height: 280px; }
+    .hero-content { padding: 60px 6vw; }
+    #contact { grid-template-columns: 1fr; padding: 80px 6vw; gap: 50px; }
+    .footer-inner { grid-template-columns: 1fr 1fr; }
+    .hero-floater, .hero-stats { display: none; }
+  }
+  @media (max-width: 640px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .footer-inner { grid-template-columns: 1fr; }
+    section { padding: 70px 5vw; }
+    .hero-title { font-size: 2.4rem; }
+  }
+
+  /* ─── CATEGORY HIDE ─── */
+  .product-card[data-cat]:not([data-cat="all"]) { }
+  .product-card.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav id="navbar">
+  <a href="#accueil" class="nav-logo">Khmiri <span>Beauté</span></a>
+  <ul class="nav-links">
+    <li><a href="#accueil">Accueil</a></li>
+    <li><a href="#produits">Produits</a></li>
+    <li><a href="#nouveautes">Nouveautés</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#accueil" onclick="closeMobile()">Accueil</a>
+  <a href="#produits" onclick="closeMobile()">Produits</a>
+  <a href="#nouveautes" onclick="closeMobile()">Nouveautés</a>
+  <a href="#services" onclick="closeMobile()">Services</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section id="accueil">
+  <div class="hero-content">
+    <div class="hero-badge">Boutique professionnelle · Tunisie</div>
+    <h1 class="hero-title">
+      Khmiri<br><em>Beauté</em>
+    </h1>
+    <p class="hero-subtitle">Produits spécialisés pour cheveux, sourcils, cils & ongles</p>
+    <p class="hero-desc">
+      La référence tunisienne pour les professionnels de la beauté et les passionnés de soins esthétiques. Nous sélectionnons pour vous les meilleurs produits et équipements certifiés pour sublimer votre art.
+    </p>
+    <div class="btn-group">
+      <a href="#produits" class="btn-primary">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+        Voir les produits
+      </a>
+      <a href="https://wa.me/21600000000?text=Bonjour%20Khmiri%20Beauté%2C%20je%20souhaite%20commander" class="btn-wa" target="_blank">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Commander sur WhatsApp
+      </a>
+    </div>
+  </div>
+  <div class="hero-image">
+    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=900&q=80" alt="Khmiri Beauté – Produits professionnels" loading="eager"/>
+    <div class="hero-image-overlay"></div>
+    <div class="hero-floater">
+      <p>Notre spécialité</p>
+      <strong>Beauté Pro ✦</strong>
+    </div>
+    <div class="hero-stats">
+      <strong>100%</strong>
+      <span>Certifié</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section id="produits">
+  <div class="text-center">
+    <div class="section-label">Notre sélection</div>
+    <h2 class="section-title">Nos <em>Produits</em></h2>
+    <p class="section-desc">Des produits professionnels soigneusement sélectionnés pour les salons, esthéticiennes et passionnés de beauté en Tunisie.</p>
+  </div>
+
+  <div class="cat-tabs">
+    <button class="cat-tab active" data-filter="all">Tous</button>
+    <button class="cat-tab" data-filter="cheveux">💇 Cheveux</button>
+    <button class="cat-tab" data-filter="sourcils">👁 Sourcils</button>
+    <button class="cat-tab" data-filter="cils">✨ Cils</button>
+    <button class="cat-tab" data-filter="ongles">💅 Ongles</button>
+  </div>
+
+  <div class="product-grid" id="productGrid">
+
+    <!-- CHEVEUX -->
+    <div class="product-card reveal" data-cat="cheveux">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=500&q=80" alt="Kératine Professionnelle"/>
+        <span class="product-badge">⭐ Best-seller</span>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Soins Cheveux</p>
+        <h3 class="product-name">Kératine Professionnelle</h3>
+        <p class="product-desc">Traitement lissant longue durée, formule enrichie en protéines. Résultats visibles dès la 1ère application.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20la%20Kératine%20Professionnelle" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="cheveux">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=500&q=80" alt="Coloration Premium"/>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Soins Cheveux</p>
+        <h3 class="product-name">Coloration Premium</h3>
+        <p class="product-desc">Palette de couleurs éclatantes, tenue longue durée. Couvre parfaitement les cheveux blancs.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20la%20Coloration%20Premium" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOURCILS -->
+    <div class="product-card reveal" data-cat="sourcils">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1616683693504-3ea7e9ad6fec?w=500&q=80" alt="Henna Sourcils"/>
+        <span class="product-badge">🔥 Nouveau</span>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Sourcils</p>
+        <h3 class="product-name">Henné & Coloration Sourcils</h3>
+        <p class="product-desc">Henné professionnel pour un résultat naturel et longue durée. Teinte précise, application facile.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Henné%20Sourcils" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="sourcils">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500&q=80" alt="Kit Microblading"/>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Sourcils</p>
+        <h3 class="product-name">Kit Microblading Pro</h3>
+        <p class="product-desc">Outils professionnels pour le microblading, aiguilles stériles, pigments longue durée.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Kit%20Microblading" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CILS -->
+    <div class="product-card reveal" data-cat="cils">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1487412840369-0d63d8ff55e0?w=500&q=80" alt="Extensions Cils Mink"/>
+        <span class="product-badge">💎 Premium</span>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Cils</p>
+        <h3 class="product-name">Extensions Cils Volume Russe</h3>
+        <p class="product-desc">Extensions volume russe ultra-légères, naturelles et durables. Effet regard magnétique garanti.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20les%20Extensions%20Cils" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ONGLES -->
+    <div class="product-card reveal" data-cat="ongles">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1604654894610-df63bc536371?w=500&q=80" alt="Gel Ongles UV"/>
+        <span class="product-badge">⭐ Best-seller</span>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Ongles</p>
+        <h3 class="product-name">Gel UV Professionnel</h3>
+        <p class="product-desc">Gel longue durée, brillance intense. Formule sans acide, adhérence parfaite sur tous types d'ongles.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Gel%20UV" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="ongles">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=500&q=80" alt="Vernis Semi-Permanent"/>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Ongles</p>
+        <h3 class="product-name">Vernis Semi-Permanent</h3>
+        <p class="product-desc">Collection de 120 teintes tendance. Séchage UV en 30 secondes, tenue jusqu'à 3 semaines.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Vernis%20Semi-Permanent" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="product-card reveal" data-cat="cils">
+      <div class="product-card-img">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=500&q=80" alt="Colle Cils Pro"/>
+      </div>
+      <div class="product-card-body">
+        <p class="product-cat">Cils</p>
+        <h3 class="product-name">Colle Cils Professionnelle</h3>
+        <p class="product-desc">Colle ultra-résistante, séchage rapide, résistante à l'humidité. Formule douce pour les yeux sensibles.</p>
+        <div class="product-actions">
+          <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20la%20Colle%20Cils" class="btn-sm-wa" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+            WhatsApp
+          </a>
+          <a href="tel:+21600000000" class="btn-sm-call">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            Appeler
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end product-grid -->
+</section>
+
+<!-- NOUVEAUTÉS -->
+<section id="nouveautes">
+  <div class="text-center">
+    <div class="section-label">Arrivages récents</div>
+    <h2 class="section-title">Nos <em>Nouveautés</em></h2>
+    <p class="section-desc">Découvrez les derniers produits qui viennent d'arriver dans notre boutique, sélectionnés pour leur qualité et leur popularité.</p>
+  </div>
+  <div class="new-grid">
+
+    <div class="new-card reveal">
+      <div class="new-card-img">
+        <img src="https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=500&q=80" alt="Lampe UV Nail Pro"/>
+      </div>
+      <div class="new-card-body">
+        <span class="new-tag">🔥 Nouveau</span>
+        <h3 class="new-name">Lampe UV/LED 120W Nail Pro</h3>
+        <p class="new-desc">La lampe la plus puissante du marché. Séchage en 10 secondes, compatible tous gels. Design élégant et ergonomique.</p>
+        <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20la%20Lampe%20UV%20Nail%20Pro" class="btn-wa" target="_blank" style="font-size:.8rem; padding:11px 20px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Commander sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="new-card reveal">
+      <div class="new-card-img">
+        <img src="https://images.unsplash.com/photo-1581182800629-7d90925ad072?w=500&q=80" alt="Sérum Repousse Cils"/>
+      </div>
+      <div class="new-card-body">
+        <span class="new-tag">✨ Tendance</span>
+        <h3 class="new-name">Sérum Repousse Cils & Sourcils</h3>
+        <p class="new-desc">Sérum à la biotine et kératine. Booste la croissance, nourrit et fortifie. Résultats visibles en 4 semaines.</p>
+        <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20le%20Sérum%20Repousse" class="btn-wa" target="_blank" style="font-size:.8rem; padding:11px 20px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Commander sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+    <div class="new-card reveal">
+      <div class="new-card-img">
+        <img src="https://images.unsplash.com/photo-1571781926291-c477ebfd024b?w=500&q=80" alt="Perceuse Ongles Pro"/>
+      </div>
+      <div class="new-card-body">
+        <span class="new-tag">🆕 Arrivage</span>
+        <h3 class="new-name">Perceuse Électrique Ongles Pro</h3>
+        <p class="new-desc">Moteur silencieux 35 000 RPM, 6 vitesses, sens direct/inverse. Idéale pour l'onglerie professionnelle.</p>
+        <a href="https://wa.me/21600000000?text=Bonjour%2C%20je%20souhaite%20commander%20la%20Perceuse%20Électrique" class="btn-wa" target="_blank" style="font-size:.8rem; padding:11px 20px;">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+          Commander sur WhatsApp
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="text-center">
+    <div class="section-label">Pourquoi nous choisir</div>
+    <h2 class="section-title">Nos <em>Avantages</em></h2>
+    <p class="section-desc" style="color:rgba(255,255,255,.6)">Khmiri Beauté s'engage à vous offrir le meilleur de la beauté professionnelle, avec un service irréprochable et des produits de qualité certifiée disponibles partout en Tunisie.</p>
+  </div>
+  <div class="services-grid">
+
+    <div class="service-card reveal">
+      <div class="service-icon">🏆</div>
+      <h3 class="service-title">Produits Certifiés</h3>
+      <p class="service-desc">Tous nos produits sont sélectionnés selon des critères stricts de qualité, certifiés et adaptés à un usage professionnel comme personnel.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">💬</div>
+      <h3 class="service-title">Conseil Personnalisé</h3>
+      <p class="service-desc">Notre équipe est disponible pour vous guider dans le choix des produits adaptés à votre activité et à vos besoins spécifiques.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🚚</div>
+      <h3 class="service-title">Livraison Rapide en Tunisie</h3>
+      <p class="service-desc">Nous livrons dans toute la Tunisie, rapidement et en toute sécurité. Commandez depuis votre salon ou votre domicile.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">✂️</div>
+      <h3 class="service-title">Pour les Professionnels</h3>
+      <p class="service-desc">Tarifs préférentiels pour les salons, coiffeurs et esthéticiennes. Contactez-nous pour un devis personnalisé et des remises volume.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">📦</div>
+      <h3 class="service-title">Large Gamme de Produits</h3>
+      <p class="service-desc">Cheveux, sourcils, cils, ongles — tout ce dont vous avez besoin, réuni en un seul endroit, avec un stock renouvelé régulièrement.</p>
+    </div>
+
+    <div class="service-card reveal">
+      <div class="service-icon">🌸</div>
+      <h3 class="service-title">Service Client Dédié</h3>
+      <p class="service-desc">Disponible sur WhatsApp et par téléphone pour répondre à toutes vos questions, même avant l'achat. Satisfait ou remboursé.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-info reveal">
+    <div class="section-label">Nous contacter</div>
+    <h2 class="section-title">Parlons <em>Beauté</em></h2>
+    <div class="contact-number">
+      <span>📞</span> +216 xx xxx xxx
+    </div>
+    <p class="contact-tagline">
+      Posez vos questions, demandez un devis ou passez votre commande directement via WhatsApp ou par téléphone. Notre équipe vous répond rapidement.
+    </p>
+    <div class="contact-btns">
+      <a href="https://wa.me/21600000000?text=Bonjour%20Khmiri%20Beauté%2C%20je%20souhaite%20avoir%20plus%20d%27informations" class="btn-contact-wa" target="_blank">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Contacter sur WhatsApp
+      </a>
+      <a href="tel:+21600000000" class="btn-contact-call">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.63A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+        Appeler maintenant
+      </a>
+    </div>
+    <div class="social-links">
+      <a href="#" class="social-link" aria-label="Facebook">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="Instagram">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="#" class="social-link" aria-label="TikTok">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.76a4.85 4.85 0 01-1.01-.07z"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <div class="contact-card reveal">
+    <h3>Khmiri Beauté</h3>
+    <p>Votre boutique de confiance pour tous vos besoins en beauté professionnelle en Tunisie.</p>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📞</div>
+      <div class="contact-detail-text">
+        <strong>Téléphone & WhatsApp</strong>
+        <span>+216 xx xxx xxx</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">📍</div>
+      <div class="contact-detail-text">
+        <strong>Disponible partout en</strong>
+        <span>Tunisie — Livraison nationale</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">🕐</div>
+      <div class="contact-detail-text">
+        <strong>Horaires de réponse</strong>
+        <span>Lun – Sam, 8h00 – 20h00</span>
+      </div>
+    </div>
+    <div class="contact-detail">
+      <div class="contact-detail-icon">💅</div>
+      <div class="contact-detail-text">
+        <strong>Spécialités</strong>
+        <span>Cheveux · Sourcils · Cils · Ongles</span>
+      </div>
+    </div>
+    <div style="margin-top:28px;">
+      <a href="https://wa.me/21600000000?text=Bonjour%20Khmiri%20Beauté%2C%20je%20souhaite%20passer%20commande" class="btn-wa" target="_blank" style="width:100%; justify-content:center; margin-top:0;">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+        Commander via WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Khmiri <span>Beauté</span></span>
+      <p>Votre référence tunisienne pour les produits et équipements professionnels de beauté. Cheveux, sourcils, cils et ongles — tout pour sublimer votre art.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Navigation</h4>
+      <ul>
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#produits">Produits</a></li>
+        <li><a href="#nouveautes">Nouveautés</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Catégories</h4>
+      <ul>
+        <li><a href="#produits">Soins Cheveux</a></li>
+        <li><a href="#produits">Sourcils</a></li>
+        <li><a href="#produits">Cils & Extensions</a></li>
+        <li><a href="#produits">Ongles & Gel</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Khmiri Beauté — Tunisie. Tous droits réservés.</span>
+    <span>Conçu avec ❤️ pour les professionnels de la beauté</span>
+  </div>
+</footer>
+
+<!-- FLOATING WA BUTTON -->
+<a href="https://wa.me/21600000000?text=Bonjour%20Khmiri%20Beauté%21" class="float-wa" target="_blank" aria-label="WhatsApp">
+  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M11.999 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.979-1.418A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 11.999 2zm.001 18c-1.717 0-3.32-.46-4.698-1.265l-.336-.2-3.482.992.944-3.449-.219-.354A7.956 7.956 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/></svg>
+</a>
+
+<script>
+  // NAVBAR SCROLL
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // HAMBURGER MENU
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    mobileMenu.classList.toggle('open');
+  });
+  function closeMobile() {
+    mobileMenu.classList.remove('open');
+  }
+
+  // CATEGORY FILTER
+  const tabs = document.querySelectorAll('.cat-tab');
+  const cards = document.querySelectorAll('.product-card');
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const filter = tab.dataset.filter;
+      cards.forEach(card => {
+        if (filter === 'all' || card.dataset.cat === filter) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+    });
+  });
+
+  // REVEAL ON SCROLL
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, (i % 4) * 90);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

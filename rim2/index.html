@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="Boutique beauté – produits pour ongles, sourcils, cils, cheveux et accessoires professionnels. Commandez via WhatsApp ou téléphone." />
+    <title>Rim Beauty – بيوتي ريم</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&family=Tajawal:wght@300;400;500;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <span class="logo-icon">✦</span>
+                <span class="logo-text" data-fr="Rim Beauty" data-ar="بيوتي ريم">Rim Beauty</span>
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#hero" data-fr="Accueil" data-ar="الرئيسية">Accueil</a></li>
+                <li><a href="#products" data-fr="Produits" data-ar="المنتجات">Produits</a></li>
+                <li><a href="#news" data-fr="Nouveautés" data-ar="الجديد">Nouveautés</a></li>
+                <li><a href="#services" data-fr="Services" data-ar="خدماتنا">Services</a></li>
+                <li><a href="#contact" data-fr="Contact" data-ar="تواصلي">Contact</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="lang-btn" id="langBtn" onclick="toggleLang()">عربي</button>
+                <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="hero.png" alt="Beauty hero" class="hero-img" onerror="this.style.display='none'" />
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-particles" id="heroParticles"></div>
+        <div class="hero-content">
+            <div class="hero-badge" data-fr="✦ Boutique Beauté Professionnelle ✦" data-ar="✦ متجر تجميل احترافي ✦">✦
+                Boutique Beauté Professionnelle ✦</div>
+            <h1 class="hero-title">
+                <span class="line1" data-fr="Beauté &amp; Élégance" data-ar="الجمال والأناقة">Beauté &amp;
+                    Élégance</span>
+                <span class="line2" data-fr="pour chaque femme" data-ar="لكل امرأة">pour chaque femme</span>
+            </h1>
+            <p class="hero-sub"
+                data-fr="Des produits de beauté soigneusement sélectionnés pour sublimer votre beauté naturelle au quotidien."
+                data-ar="منتجات تجميل مختارة بعناية لإبراز جمالك الطبيعي في كل يوم.">
+                Des produits de beauté soigneusement sélectionnés pour sublimer votre beauté naturelle au quotidien.
+            </p>
+            <div class="hero-btns">
+                <a href="#products" class="btn btn-primary">
+                    <i class="fas fa-sparkles"></i>
+                    <span data-fr="Voir les produits" data-ar="اكتشفي المنتجات">Voir les produits</span>
+                </a>
+                <a href="https://wa.me/216111222" target="_blank" class="btn btn-whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-fr="WhatsApp" data-ar="واتساب">WhatsApp</span>
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat"><span class="stat-num">500+</span><span class="stat-label" data-fr="Produits"
+                        data-ar="منتج">Produits</span></div>
+                <div class="stat-sep"></div>
+                <div class="stat"><span class="stat-num">1K+</span><span class="stat-label" data-fr="Clientes"
+                        data-ar="عميلة">Clientes</span></div>
+                <div class="stat-sep"></div>
+                <div class="stat"><span class="stat-num">100%</span><span class="stat-label" data-fr="Qualité"
+                        data-ar="جودة">Qualité</span></div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <div class="scroll-line"></div>
+            <span data-fr="Découvrir" data-ar="اكتشفي">Découvrir</span>
+        </div>
+    </section>
+
+    <!-- ===== CATEGORIES ===== -->
+    <section class="categories">
+        <div class="container">
+            <div class="cats-grid">
+                <div class="cat-card" onclick="location.href='#products'">
+                    <div class="cat-icon">💅</div>
+                    <span data-fr="Ongles" data-ar="أظافر">Ongles</span>
+                </div>
+                <div class="cat-card" onclick="location.href='#products'">
+                    <div class="cat-icon">🪮</div>
+                    <span data-fr="Sourcils" data-ar="حواجب">Sourcils</span>
+                </div>
+                <div class="cat-card" onclick="location.href='#products'">
+                    <div class="cat-icon">👁️</div>
+                    <span data-fr="Cils" data-ar="رموش">Cils</span>
+                </div>
+                <div class="cat-card" onclick="location.href='#products'">
+                    <div class="cat-icon">💇</div>
+                    <span data-fr="Cheveux" data-ar="شعر">Cheveux</span>
+                </div>
+                <div class="cat-card" onclick="location.href='#products'">
+                    <div class="cat-icon">🔧</div>
+                    <span data-fr="Outils Pro" data-ar="أدوات احترافية">Outils Pro</span>
+                </div>
+                <div class="cat-card" onclick="location.href='#products'">
+                    <div class="cat-icon">✨</div>
+                    <span data-fr="Accessoires" data-ar="إكسسوارات">Accessoires</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PRODUCTS ===== -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag" data-fr="Notre Collection" data-ar="مجموعتنا">Notre Collection</p>
+                <h2 class="section-title" data-fr="Nos Produits" data-ar="منتجاتنا البديعة">Nos Produits</h2>
+                <p class="section-desc"
+                    data-fr="Découvrez notre large gamme de produits de beauté de qualité professionnelle."
+                    data-ar="اكتشفي مجموعتنا الواسعة من منتجات التجميل ذات الجودة الاحترافية.">
+                    Découvrez notre large gamme de produits de beauté de qualité professionnelle.
+                </p>
+            </div>
+
+            <div class="products-grid" id="productsGrid">
+
+                <!-- Ongles -->
+                <div class="product-card" data-cat="ongles">
+                    <div class="product-img-wrap">
+                        <img src="nails.png" alt="Produits ongles"
+                            onerror="this.src='https://images.unsplash.com/photo-1604654894610-df63bc536371?w=400&q=80'" />
+                        <div class="product-badge" data-fr="Populaire" data-ar="الأكثر طلبًا">Populaire</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Kit Ongles Complet" data-ar="طقم أظافر متكامل">Kit Ongles Complet</h3>
+                        <p data-fr="Vernis gel, outils de manucure, nail art et accessoires professionnels."
+                            data-ar="طلاء جل، أدوات مانيكير، نيل آرت وإكسسوارات احترافية.">Vernis gel, outils de
+                            manucure, nail art et accessoires professionnels.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/21?text=Bonjour, je voudrais commander le Kit Ongles" target="_blank"
+                                class="btn-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-fr="Commander" data-ar="طلب">Commander</span>
+                            </a>
+                            <a href="tel:+216111222" class="btn-call">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sourcils -->
+                <div class="product-card" data-cat="sourcils">
+                    <div class="product-img-wrap">
+                        <img src="brows.png" alt="Produits sourcils"
+                            onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80'" />
+                        <div class="product-badge new-badge" data-fr="Nouveau" data-ar="جديد">Nouveau</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Produits Sourcils" data-ar="منتجات الحواجب">Produits Sourcils</h3>
+                        <p data-fr="Crayons, poudres, gels fixateurs et outils pour des sourcils parfaits."
+                            data-ar="أقلام، مساحيق، مثبتات وأدوات لحواجب مثالية.">Crayons, poudres, gels fixateurs et
+                            outils pour des sourcils parfaits.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/213xxxxxxxxx?text=Bonjour, je voudrais commander des produits sourcils"
+                                target="_blank" class="btn-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-fr="Commander" data-ar="طلب">Commander</span>
+                            </a>
+                            <a href="tel:+216111222" class="btn-call">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cils -->
+                <div class="product-card" data-cat="cils">
+                    <div class="product-img-wrap">
+                        <img src="lashes.png" alt="Produits cils"
+                            onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=400&q=80'" />
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Extensions & Produits Cils" data-ar="منتجات الرموش">Extensions &amp; Produits Cils
+                        </h3>
+                        <p data-fr="Mascaras, faux cils, colles et sérums pour des cils spectaculaires."
+                            data-ar="مسكارا، رموش اصطناعية، صمغ ومصل لرموش مذهلة.">Mascaras, faux cils, colles et sérums
+                            pour des cils spectaculaires.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/213xxxxxxxxx?text=Bonjour, je voudrais commander des produits cils"
+                                target="_blank" class="btn-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-fr="Commander" data-ar="طلب">Commander</span>
+                            </a>
+                            <a href="tel:+216111222" class="btn-call">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cheveux -->
+                <div class="product-card" data-cat="cheveux">
+                    <div class="product-img-wrap">
+                        <img src="hair.png" alt="Produits cheveux"
+                            onerror="this.src='https://images.unsplash.com/photo-1527799820374-87991a7a11a2?w=400&q=80'" />
+                        <div class="product-badge" data-fr="Populaire" data-ar="الأكثر طلبًا">Populaire</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Fournitures Capillaires" data-ar="مستلزمات الشعر">Fournitures Capillaires</h3>
+                        <p data-fr="Soins, masques, huiles et accessoires pour tous types de cheveux."
+                            data-ar="علاجات، أقنعة، زيوت وإكسسوارات لجميع أنواع الشعر.">Soins, masques, huiles et
+                            accessoires pour tous types de cheveux.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/213xxxxxxxxx?text=Bonjour, je voudrais commander des fournitures capillaires"
+                                target="_blank" class="btn-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-fr="Commander" data-ar="طلب">Commander</span>
+                            </a>
+                            <a href="tel:+216111222" class="btn-call">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outils Pro -->
+                <div class="product-card" data-cat="outils">
+                    <div class="product-img-wrap">
+                        <img src="tools.png" alt="Outils professionnels"
+                            onerror="this.src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=400&q=80'" />
+                        <div class="product-badge new-badge" data-fr="Pro" data-ar="احترافي">Pro</div>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Outils Professionnels" data-ar="الأدوات الاحترافية">Outils Professionnels</h3>
+                        <p data-fr="Fraiseuses à ongles, lampes UV, pinces et équipements de salon."
+                            data-ar="ماكينات الأظافر، مصابيح UV، ملاقيط ومعدات الصالون.">Fraiseuses à ongles, lampes UV,
+                            pinces et équipements de salon.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/213xxxxxxxxx?text=Bonjour, je voudrais commander des outils professionnels"
+                                target="_blank" class="btn-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-fr="Commander" data-ar="طلب">Commander</span>
+                            </a>
+                            <a href="tel:+216111222" class="btn-call">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Accessoires -->
+                <div class="product-card" data-cat="accessoires">
+                    <div class="product-img-wrap">
+                        <img src="accessories.png" alt="Accessoires beauté"
+                            onerror="this.src='https://images.unsplash.com/photo-1631729371254-42c2892f0e6e?w=400&q=80'" />
+                    </div>
+                    <div class="product-info">
+                        <h3 data-fr="Accessoires Beauté" data-ar="إكسسوارات التجميل">Accessoires Beauté</h3>
+                        <p data-fr="Pinceaux, éponges, trousses de maquillage et accessoires variés."
+                            data-ar="فراشي، إسفنج، حقائب مكياج وإكسسوارات متنوعة.">Pinceaux, éponges, trousses de
+                            maquillage et accessoires variés.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/213xxxxxxxxx?text=Bonjour, je voudrais commander des accessoires beauté"
+                                target="_blank" class="btn-wa">
+                                <i class="fab fa-whatsapp"></i>
+                                <span data-fr="Commander" data-ar="طلب">Commander</span>
+                            </a>
+                            <a href="tel:+216111222" class="btn-call">
+                                <i class="fas fa-phone"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NOUVEAUTÉS ===== -->
+    <section class="news-section" id="news">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag" data-fr="Tendances du moment" data-ar="أحدث الصيحات">Tendances du moment</p>
+                <h2 class="section-title" data-fr="Nouveautés &amp; Populaires" data-ar="الجديد والأكثر شعبية">
+                    Nouveautés &amp; Populaires</h2>
+            </div>
+            <div class="news-grid">
+                <div class="news-card featured">
+                    <div class="news-img">
+                        <img src="nails.png" alt="Nouveauté"
+                            onerror="this.src='https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&q=80'" />
+                        <div class="news-label" data-fr="🔥 Tendance" data-ar="🔥 الأكثر رواجًا">🔥 Tendance</div>
+                    </div>
+                    <div class="news-content">
+                        <h3 data-fr="Collection Printemps 2025" data-ar="مجموعة ربيع 2025">Collection Printemps 2025
+                        </h3>
+                        <p data-fr="De nouveaux vernis aux couleurs pastel, des outils de précision et les dernières tendances nail art arrivent en boutique !"
+                            data-ar="حصلي على أحدث طلاءات الأظافر بألوان الباستيل وأدوات الدقة وآخر صيحات نيل آرت!">
+                            De nouveaux vernis aux couleurs pastel, des outils de précision et les dernières tendances
+                            nail art arrivent en boutique !
+                        </p>
+                        <a href="https://wa.me/213xxxxxxxxx?text=Bonjour, je voudrais en savoir plus sur la collection printemps"
+                            target="_blank" class="btn btn-primary" style="margin-top:1rem; display:inline-flex;">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-fr="Commander" data-ar="اطلبيها الآن">Commander</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="news-side">
+                    <div class="news-mini">
+                        <img src="brows.png" alt="Sourcils"
+                            onerror="this.src='https://images.unsplash.com/photo-1588771930296-d0a54cf8e64b?w=200&q=80'" />
+                        <div>
+                            <span class="mini-tag" data-fr="Nouveau" data-ar="جديد">Nouveau</span>
+                            <h4 data-fr="Kits sourcils microblading" data-ar="أطقم تطريز الحواجب">Kits sourcils
+                                microblading</h4>
+                            <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="mini-link">
+                                <i class="fab fa-whatsapp"></i> <span data-fr="Commander"
+                                    data-ar="اطلبي">Commander</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="news-mini">
+                        <img src="lashes.png" alt="Cils"
+                            onerror="this.src='https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=200&q=80'" />
+                        <div>
+                            <span class="mini-tag" data-fr="Populaire" data-ar="الأكثر طلبًا">Populaire</span>
+                            <h4 data-fr="Cils XXL volumisants" data-ar="رموش XXL كثيفة">Cils XXL volumisants</h4>
+                            <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="mini-link">
+                                <i class="fab fa-whatsapp"></i> <span data-fr="Commander"
+                                    data-ar="اطلبي">Commander</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="news-mini">
+                        <img src="tools.png" alt="Outils"
+                            onerror="this.src='https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=200&q=80'" />
+                        <div>
+                            <span class="mini-tag" data-fr="Pro" data-ar="احترافي">Pro</span>
+                            <h4 data-fr="Fraiseuse sans fil Pro" data-ar="ماكينة أظافر لاسلكية Pro">Fraiseuse sans fil
+                                Pro</h4>
+                            <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="mini-link">
+                                <i class="fab fa-whatsapp"></i> <span data-fr="Commander"
+                                    data-ar="اطلبي">Commander</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICES ===== -->
+    <section class="services-section" id="services">
+        <div class="services-bg"></div>
+        <div class="container">
+            <div class="section-header light">
+                <p class="section-tag" data-fr="Comment ça marche" data-ar="كيف يعمل">Comment ça marche</p>
+                <h2 class="section-title" data-fr="Nos Services" data-ar="خدماتنا">Nos Services</h2>
+                <p class="section-desc"
+                    data-fr="Pour toute demande de service ou information, contactez-nous directement par WhatsApp ou téléphone."
+                    data-ar="لأي طلب خدمة أو استفسار، تواصلي معنا مباشرة عبر واتساب أو الهاتف.">
+                    Pour toute demande de service ou information, contactez-nous directement par WhatsApp ou téléphone.
+                </p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="svc-icon"><i class="fas fa-boxes-stacked"></i></div>
+                    <h3 data-fr="Commande Facile" data-ar="طلب سهل">Commande Facile</h3>
+                    <p data-fr="Choisissez vos produits et commandez directement via WhatsApp ou téléphone."
+                        data-ar="اختاري منتجاتك واطلبيها مباشرة عبر واتساب أو الهاتف.">Choisissez vos produits et
+                        commandez directement via WhatsApp ou téléphone.</p>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon"><i class="fas fa-truck-fast"></i></div>
+                    <h3 data-fr="Livraison Rapide" data-ar="توصيل سريع">Livraison Rapide</h3>
+                    <p data-fr="Livraison à domicile disponible. Contactez-nous pour connaître les délais."
+                        data-ar="التوصيل إلى المنزل متاح. تواصلي معنا لمعرفة المواعيد.">Livraison à domicile disponible.
+                        Contactez-nous pour connaître les délais.</p>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon"><i class="fas fa-star"></i></div>
+                    <h3 data-fr="Qualité Garantie" data-ar="جودة مضمونة">Qualité Garantie</h3>
+                    <p data-fr="Tous nos produits sont sélectionnés pour leur qualité professionnelle."
+                        data-ar="جميع منتجاتنا مختارة بعناية لجودتها الاحترافية.">Tous nos produits sont sélectionnés
+                        pour leur qualité professionnelle.</p>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon"><i class="fas fa-headset"></i></div>
+                    <h3 data-fr="Conseils Beauté" data-ar="نصائح تجميلية">Conseils Beauté</h3>
+                    <p data-fr="Notre équipe vous conseille et vous aide à choisir les meilleurs produits."
+                        data-ar="فريقنا يرشدك ويساعدك في اختيار أفضل المنتجات.">Notre équipe vous conseille et vous aide
+                        à choisir les meilleurs produits.</p>
+                </div>
+            </div>
+            <div class="services-cta">
+                <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="btn btn-white">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-fr="Contactez-nous sur WhatsApp" data-ar="تواصلي معنا على واتساب">Contactez-nous sur
+                        WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== WHY US ===== -->
+    <section class="why-section">
+        <div class="container">
+            <div class="why-content">
+                <div class="why-text">
+                    <p class="section-tag" data-fr="Pourquoi nous choisir" data-ar="لماذا تختارينا">Pourquoi nous
+                        choisir</p>
+                    <h2 data-fr="Votre beauté, notre passion" data-ar="جمالك شغفنا">Votre beauté, notre passion</h2>
+                    <p data-fr="Chez Rim Beauty, nous croyons que chaque femme mérite le meilleur. C'est pourquoi nous sélectionnons avec soin les produits les plus qualitatifs pour vous accompagner au quotidien."
+                        data-ar="في بيوتي ريم، نؤمن أن كل امرأة تستحق الأفضل. لذلك نختار بعناية أجود المنتجات لمرافقتك في يومك.">
+                        Chez Rim Beauty, nous croyons que chaque femme mérite le meilleur. C'est pourquoi nous
+                        sélectionnons avec soin les produits les plus qualitatifs pour vous accompagner au quotidien.
+                    </p>
+                    <ul class="why-list">
+                        <li><i class="fas fa-check-circle"></i> <span data-fr="Produits professionnels de haute qualité"
+                                data-ar="منتجات احترافية عالية الجودة">Produits professionnels de haute qualité</span>
+                        </li>
+                        <li><i class="fas fa-check-circle"></i> <span data-fr="Prix compétitifs et accessibles"
+                                data-ar="أسعار تنافسية وفي المتناول">Prix compétitifs et accessibles</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-fr="Large gamme pour tous les besoins"
+                                data-ar="مجموعة واسعة لجميع الاحتياجات">Large gamme pour tous les besoins</span></li>
+                        <li><i class="fas fa-check-circle"></i> <span data-fr="Service client disponible 7j/7"
+                                data-ar="خدمة عملاء متاحة 7 أيام/7">Service client disponible 7j/7</span></li>
+                    </ul>
+                    <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="btn btn-primary">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-fr="Nous contacter maintenant" data-ar="تواصلي معنا الآن">Nous contacter
+                            maintenant</span>
+                    </a>
+                </div>
+                <div class="why-visual">
+                    <div class="why-img-grid">
+                        <div class="wimg wimg-1"><img src="nails.png" alt="Ongles"
+                                onerror="this.src='https://images.unsplash.com/photo-1604654894610-df63bc536371?w=300&q=80'" />
+                        </div>
+                        <div class="wimg wimg-2"><img src="brows.png" alt="Sourcils"
+                                onerror="this.src='https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300&q=80'" />
+                        </div>
+                        <div class="wimg wimg-3"><img src="hair.png" alt="Cheveux"
+                                onerror="this.src='https://images.unsplash.com/photo-1527799820374-87991a7a11a2?w=300&q=80'" />
+                        </div>
+                        <div class="wimg wimg-float">✦</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-tag" data-fr="Joignez-nous" data-ar="تواصلي معنا">Joignez-nous</p>
+                <h2 class="section-title" data-fr="Contactez-nous" data-ar="اتصلي بنا">Contactez-nous</h2>
+                <p class="section-desc"
+                    data-fr="Pour commander ou demander des informations, contactez-nous directement. Nous répondons rapidement !"
+                    data-ar="للطلب أو الاستفسار، تواصلي معنا مباشرة. نرد بسرعة!">
+                    Pour commander ou demander des informations, contactez-nous directement. Nous répondons rapidement !
+                </p>
+            </div>
+            <div class="contact-cards">
+                <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="contact-card wa-card">
+                    <div class="cc-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3 data-fr="WhatsApp" data-ar="واتساب">WhatsApp</h3>
+                    <p data-fr="Commandez ou posez vos questions via WhatsApp" data-ar="اطلبي أو اسألي عبر واتساب">
+                        Commandez ou posez vos questions via WhatsApp</p>
+                    <span class="cc-btn" data-fr="Ouvrir WhatsApp" data-ar="فتح واتساب">Ouvrir WhatsApp</span>
+                </a>
+                <a href="tel:+216111222" class="contact-card call-card">
+                    <div class="cc-icon"><i class="fas fa-phone-volume"></i></div>
+                    <h3 data-fr="Appel Direct" data-ar="اتصال مباشر">Appel Direct</h3>
+                    <p>+216111222</p>
+                    <span class="cc-btn" data-fr="Appeler maintenant" data-ar="اتصلي الآن">Appeler maintenant</span>
+                </a>
+                <div class="contact-card social-card">
+                    <div class="cc-icon"><i class="fas fa-share-nodes"></i></div>
+                    <h3 data-fr="Réseaux Sociaux" data-ar="التواصل الاجتماعي">Réseaux Sociaux</h3>
+                    <div class="social-icons">
+                        <a href="#" target="_blank" class="soc-btn instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" class="soc-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" class="soc-btn tiktok"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <p data-fr="Suivez-nous pour les nouveautés" data-ar="تابعينا للجديد">Suivez-nous pour les
+                        nouveautés</p>
+                </div>
+            </div>
+            <!-- Floating WA button -->
+            <a href="https://wa.me/213xxxxxxxxx" target="_blank" class="float-wa" id="floatWa">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <div class="footer-top">
+            <div class="container">
+                <div class="footer-grid">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <span class="logo-icon">✦</span>
+                            <span>Rim Beauty</span>
+                        </div>
+                        <p data-fr="Votre boutique beauté de confiance pour tous vos produits professionnels."
+                            data-ar="متجر تجميلك الموثوق لجميع منتجاتك الاحترافية.">
+                            Votre boutique beauté de confiance pour tous vos produits professionnels.
+                        </p>
+                        <div class="footer-socials">
+                            <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://wa.me/213xxxxxxxxx" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="footer-links">
+                        <h4 data-fr="Navigation" data-ar="التنقل">Navigation</h4>
+                        <ul>
+                            <li><a href="#hero" data-fr="Accueil" data-ar="الرئيسية">Accueil</a></li>
+                            <li><a href="#products" data-fr="Produits" data-ar="المنتجات">Produits</a></li>
+                            <li><a href="#news" data-fr="Nouveautés" data-ar="الجديد">Nouveautés</a></li>
+                            <li><a href="#services" data-fr="Services" data-ar="خدماتنا">Services</a></li>
+                            <li><a href="#contact" data-fr="Contact" data-ar="تواصلي">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-contact">
+                        <h4 data-fr="Contact" data-ar="اتصلي بنا">Contact</h4>
+                        <p><i class="fas fa-phone"></i> +213 XX XX XX XX</p>
+                        <p><i class="fab fa-whatsapp"></i> WhatsApp</p>
+                        <p><i class="fas fa-clock"></i> <span data-fr="Lun – Sam : 9h – 19h"
+                                data-ar="الإثنين – السبت: 9ص – 7م">Lun – Sam : 9h – 19h</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p data-fr="Merci de votre confiance ✦ © 2025 Rim Beauty – Tous droits réservés"
+                    data-ar="شكرًا لثقتكم ✦ © 2025 بيوتي ريم – جميع الحقوق محفوظة">
+                    Merci de votre confiance ✦ © 2025 Rim Beauty – Tous droits réservés
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
